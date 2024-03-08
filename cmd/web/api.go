@@ -24,8 +24,8 @@ var (
 )
 
 type API struct {
-	CacheUser *models.User       // ??
-	UserPosts *models.UsersPosts // NEED ?
+	CacheUser *models.User
+	UserPosts *models.UsersPosts
 	Artists   []models.Artists
 	Cache     map[string]*template.Template
 	DB        *db.PostgreSQL

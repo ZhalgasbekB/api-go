@@ -21,7 +21,7 @@ func (api *API) GenerateJWT(email string, is_admin bool, name string, id int) (s
 	claims["email"] = email
 	claims["isAdmin"] = is_admin
 	claims["name"] = name
-	claims["exp"] = time.Now().Add(time.Minute * 5).Unix()
+	claims["exp"] = time.Now().Add(time.Minute * 15).Unix()
 	tokenString, err := token.SignedString(jwtKey)
 	if err != nil {
 		return "", fmt.Errorf("error in GenerateJWT: %w", err)

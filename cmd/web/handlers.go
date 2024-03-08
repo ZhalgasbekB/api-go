@@ -10,12 +10,12 @@ import (
 
 func (api *API) Home(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" {
-		api.Error(w, http.StatusNotFound, "NOT FOUND")
+		api.Error(w, http.StatusNotFound, "Not found.")
 		return
 	}
 	if r.Method != http.MethodGet {
 		w.Header().Set("Allow", http.MethodGet)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	WriteJSON(w, http.StatusOK, api.Artists)
@@ -24,7 +24,7 @@ func (api *API) Home(w http.ResponseWriter, r *http.Request) {
 func (api *API) BandPage(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		w.Header().Set("Allow", http.MethodGet)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	id, err := getID(r)
@@ -48,7 +48,7 @@ func (api *API) BandPage(w http.ResponseWriter, r *http.Request) {
 func (api *API) LoginPost(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		w.Header().Set("Allow", http.MethodPost)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	var login models.User
@@ -81,7 +81,7 @@ func (api *API) LoginPost(w http.ResponseWriter, r *http.Request) {
 func (api *API) SingUpPost(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		w.Header().Set("Allow", http.MethodPost)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	sign := models.User{}
@@ -111,7 +111,7 @@ func (api *API) SingUpPost(w http.ResponseWriter, r *http.Request) {
 func (api *API) DeleteUserByID(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodDelete {
 		w.Header().Set("Allow", http.MethodDelete)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	id, err := getID(r)
@@ -129,7 +129,7 @@ func (api *API) DeleteUserByID(w http.ResponseWriter, r *http.Request) {
 func (api *API) UpdateUserByID(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPut {
 		w.Header().Set("Allow", http.MethodPut)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	id, err := getID(r)
@@ -163,7 +163,7 @@ func (api *API) UpdateUserByID(w http.ResponseWriter, r *http.Request) {
 func (api *API) Admin(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		w.Header().Set("Allow", http.MethodGet)
-		api.Error(w, http.StatusMethodNotAllowed, "METHOD NOT ALLOWED")
+		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
 	users, err := api.DB.Users()
