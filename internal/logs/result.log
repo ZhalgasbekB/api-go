@@ -1,3 +1,4 @@
-Log: 2024/03/15 09:57:33 helpers.go:120: Connected Successfully: Postgres
-Log: 2024/03/15 09:57:33 api.go:198: OK.
-Log: 2024/03/15 09:57:36 api.go:120: Success update a cache!!!
+Log: 2024/03/15 10:36:08 helpers.go:120: Connected Successfully: Postgres
+Log: 2024/03/15 10:36:08 api.go:198: OK.
+Log: 2024/03/15 10:36:13 helpers.go:87: Cache updated.
+Log: 2024/03/15 10:36:13 api.go:109: 0x104b09d90  Connecting to the Internet.

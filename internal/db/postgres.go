@@ -2,6 +2,7 @@ package db
 
 import (
 	"database/sql"
+	"fmt"
 	"golang.org/x/crypto/bcrypt"
 	"groupie-tracker/internal/models"
 	"log"
@@ -9,12 +10,12 @@ import (
 
 type Storage interface {
 	CreateUser(*models.User) (int, error)
-	UpdateUser(*models.User, *models.User) (*models.User, error)
+	UpdateUser(*models.User) (*models.User, error)
 	DeleteUser(int) (*models.User, error)
 	UserByID(int) (*models.User, error)
 	UserByEmail(string, string) (*models.User, error)
 	Users() ([]*models.User, error)
-} // CHANGE ??
+}
 
 type PostgreSQL struct {
 	DBSql *sql.DB
@@ -26,6 +27,7 @@ func (db *PostgreSQL) CreateUser(user *models.User) (int, error) {
 	if err := db.DBSql.QueryRow(query, user.Name, user.Email, user.HashPassword, user.IsAdmin, user.CreatedAt).Scan(&ID); err != nil {
 		return -1, err
 	}
+
 	return ID, nil
 }
 func (db *PostgreSQL) UserByEmail(email string, password string) (*models.User, error) {
@@ -36,7 +38,7 @@ func (db *PostgreSQL) UserByEmail(email string, password string) (*models.User, 
 	if err := row.Scan(&user.ID, &user.Name, &user.Email, &user.HashPassword, &user.IsAdmin, &user.CreatedAt); err != nil {
 		if err == sql.ErrNoRows {
 			log.Println("NOT FOUND IN DB: ", err)
-			return nil, nil
+			return nil, fmt.Errorf("NOT FOUND IN DB: ", err)
 		}
 		return nil, err
 	}
@@ -46,14 +48,13 @@ func (db *PostgreSQL) UserByEmail(email string, password string) (*models.User, 
 	return &user, nil
 }
 
-func (db *PostgreSQL) UpdateUser(user *models.User) (*models.User, error) {
+func (db *PostgreSQL) UpdateUser(update *models.User) (*models.User, error) {
 	updateQuery := `UPDATE users SET name = $2,email=$3, is_admin = $4 WHERE id = $1`
-	if _, err := db.DBSql.Exec(updateQuery, user.ID, user.Name, user.Email, user.IsAdmin); err != nil {
+	if _, err := db.DBSql.Exec(updateQuery, update.ID, update.Name, update.Email, update.IsAdmin); err != nil {
 		return nil, err
 	}
 	log.Println("User updated successfully")
-
-	return user, nil
+	return update, nil
 }
 func (db *PostgreSQL) DeleteUser(id int) (*models.User, error) {
 	deleteQuery := `WITH deleted AS (DELETE FROM users WHERE id = $1 RETURNING id , name, email, password, is_admin, created_at) SELECT * FROM deleted`
