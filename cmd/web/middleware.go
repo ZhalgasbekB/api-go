@@ -63,10 +63,6 @@ func (api *API) IsAuthorizedJWT(next func(w http.ResponseWriter, r *http.Request
 	})
 }
 
-//	if id != int(int64(claims["id"].(float64)))   {
-//		http.Error(w, "No Valid User", http.StatusBadRequest)
-//		return
-//	}
 func (api *API) IsAdmin(next func(w http.ResponseWriter, r *http.Request)) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		authHeader := r.Header.Get("Authorization")

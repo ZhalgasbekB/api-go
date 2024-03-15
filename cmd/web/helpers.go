@@ -5,7 +5,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/golang-migrate/migrate"
+	"github.com/golang-migrate/migrate/database/postgres"
+	_ "github.com/golang-migrate/migrate/source/file"
 	"github.com/gorilla/mux"
+	_ "github.com/lib/pq"
 	"groupie-tracker/internal/models"
 	"log"
 	"net/http"
@@ -118,6 +122,24 @@ func OpenDB() (*sql.DB, error) {
 		return nil, err
 	}
 	return dbConn, nil
+}
+
+// USE A MIGRATION
+func InitByMigrateFiles(db *sql.DB) error {
+	driver, err := postgres.WithInstance(db, &postgres.Config{})
+	if err != nil {
+		return err
+
+	}
+	m, err := migrate.NewWithDatabaseInstance("file:///Users/zhalgasbolatov/Downloads/groupie-tracker-6/internal/migrations", "postgres", driver)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	if err := m.Up(); err != nil && err != migrate.ErrNoChange {
+		return err
+	}
+	return nil
 }
 
 // FOR MIDDLEWARE
