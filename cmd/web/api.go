@@ -35,7 +35,7 @@ type API struct {
 func Start() {
 	logFile, err := os.Create("./internal/logs/result.log")
 	if err != nil {
-		log.Println("Does't open file: ", err, ".")
+		log.Println("Doesn't open file: ", err, ".")
 	}
 	defer logFile.Close()
 	log.SetOutput(logFile)

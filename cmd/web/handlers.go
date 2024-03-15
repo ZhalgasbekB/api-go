@@ -225,17 +225,26 @@ func (api *API) UpdatePost(w http.ResponseWriter, r *http.Request) {
 		api.Error(w, http.StatusNotFound, "No valid user.")
 		return
 	}
+
 	var postU models.Post
 	if err := json.NewDecoder(r.Body).Decode(&postU); err != nil {
 		api.Error(w, http.StatusBadRequest, err.Error())
 	}
 	postU.UpdatedAt = time.Now().UTC()
+
 	post, err := api.DB.Post(id)
 	if err != nil {
 		api.Error(w, http.StatusBadRequest, err.Error())
 		return
 	}
-	if err := api.DB.UpdatePost(&postU, post); err != nil {
+
+	postUpdated, ok := CheckUpdatePosts(post, &postU)
+	if !ok {
+		WriteJSON(w, http.StatusOK, "Nothing to update.")
+		return
+	}
+
+	if err := api.DB.UpdatePost(postUpdated); err != nil {
 		api.Error(w, http.StatusBadRequest, err.Error())
 		return
 	}

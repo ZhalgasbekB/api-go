@@ -179,7 +179,7 @@ func MapOfPosts(postsArr []*models.Post) map[int]*models.Post {
 	}
 	return posts
 }
-func CheckUpdateUser(user, userUpdated *models.User) (*models.User, bool) {
+func CheckUpdateUser(user, userUpdated *models.User) (*models.User, bool) { // ADD ERROR ???
 	check := false
 	if user.Name != userUpdated.Name {
 		user.Name = userUpdated.Name
@@ -192,7 +192,7 @@ func CheckUpdateUser(user, userUpdated *models.User) (*models.User, bool) {
 	if userUpdated.HashPassword != "" {
 		hashPassword, err := bcrypt.GenerateFromPassword([]byte(userUpdated.HashPassword), bcrypt.DefaultCost)
 		if err != nil {
-			fmt.Println(err)
+			log.Println(err)
 		}
 		user.HashPassword = string(hashPassword)
 	}
@@ -202,4 +202,23 @@ func CheckUpdateUser(user, userUpdated *models.User) (*models.User, bool) {
 	}
 
 	return user, check
+}
+
+func CheckUpdatePosts(post, updatedPost *models.Post) (*models.Post, bool) {
+	check := false
+	if post.Title != updatedPost.Title {
+		post.Title = updatedPost.Title
+		check = true
+	}
+	if post.Description != updatedPost.Description {
+		post.Description = updatedPost.Description
+		check = true
+
+	}
+	if post.UpdatedAt != updatedPost.UpdatedAt {
+		post.UpdatedAt = updatedPost.UpdatedAt
+		check = true
+
+	}
+	return post, check
 }

@@ -116,34 +116,16 @@ func (db *PostgreSQL) Post(id int) (*models.Post, error) {
 	}
 	return &post, nil
 }
-func (db *PostgreSQL) UpdatePost(updatePost, post *models.Post) error {
+
+func (db *PostgreSQL) UpdatePost(post *models.Post) error {
 	query := `UPDATE posts SET title=$2, description=$3, updated_at=$4 WHERE id = $1`
-
-	check := false
-	if post.Title != updatePost.Title {
-		post.Title = updatePost.Title
-		check = true
+	if _, err := db.DBSql.Exec(query, post.ID, post.Title, post.Description, post.UpdatedAt); err != nil {
+		return err
 	}
-	if post.Description != updatePost.Description {
-		post.Description = updatePost.Description
-		check = true
-
-	}
-	if post.UpdatedAt != updatePost.UpdatedAt {
-		post.UpdatedAt = updatePost.UpdatedAt
-		check = true
-
-	}
-	if check {
-		if _, err := db.DBSql.Exec(query, post.ID, post.Title, post.Description, post.UpdatedAt); err != nil {
-			return err
-		}
-		log.Println("Post updated successfully.")
-	} else {
-		log.Println("No updates were made to the post.")
-	}
+	log.Println("Post updated successfully.")
 	return nil
 }
+
 func (db *PostgreSQL) DeletePost(id int) (*models.Post, error) {
 	query := `WITH deleted AS  (DELETE FROM posts WHERE id=$1 RETURNING id, user_id, title, description, created_at, updated_at) SELECT * FROM deleted`
 	var post models.Post
@@ -153,6 +135,7 @@ func (db *PostgreSQL) DeletePost(id int) (*models.Post, error) {
 	return &post, nil
 
 }
+
 func (db *PostgreSQL) Posts(id int) ([]*models.Post, error) {
 	var posts []*models.Post
 	query := `SELECT id, user_id, title, description, created_at, updated_at FROM posts WHERE user_id=$1`
