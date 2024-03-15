@@ -15,51 +15,12 @@ type Storage interface {
 	UserByID(int) (*models.User, error)
 	UserByEmail(string, string) (*models.User, error)
 	Users() ([]*models.User, error)
-}
-
-// NEED TO CHANGE
+} // CHANGE ??
 
 type PostgreSQL struct {
 	DBSql *sql.DB
 }
 
-func (db *PostgreSQL) Init() error {
-	if err := db.CreateUserTable(); err != nil {
-		return err
-	}
-	if err := db.CreatePostsTable(); err != nil {
-		return err
-	}
-	return nil
-}
-
-func (db *PostgreSQL) CreateUserTable() error {
-	query := `CREATE TABLE IF NOT EXISTS users(
-    id serial primary key,
-    name varchar(100), 
-    email varchar(100) unique, 
-    password varchar(100),
-    is_admin boolean,
-    created_at timestamp 
-)`
-	log.Println("Users table: OK")
-	_, err := db.DBSql.Exec(query)
-	return err
-}
-func (db *PostgreSQL) CreatePostsTable() error {
-	query := `CREATE TABLE IF NOT EXISTS posts(
-    id serial primary key, 
-    user_id integer not null, 
-    title text not null, 
-    description text not null,
-    created_at timestamp, 
-    updated_at timestamp, 
-	FOREIGN KEY (user_id) REFERENCES users(id) 
-)`
-	log.Println("Posts table: OK")
-	_, err := db.DBSql.Exec(query)
-	return err
-}
 func (db *PostgreSQL) CreateUser(user *models.User) (int, error) {
 	var ID int
 	query := `INSERT INTO users (name, email, password, is_admin, created_at) VALUES ($1,$2,$3,$4,$5) RETURNING id`
