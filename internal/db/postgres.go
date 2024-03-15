@@ -2,7 +2,6 @@ package db
 
 import (
 	"database/sql"
-	"fmt"
 	"golang.org/x/crypto/bcrypt"
 	"groupie-tracker/internal/models"
 	"log"
@@ -42,37 +41,18 @@ func (db *PostgreSQL) UserByEmail(email string, password string) (*models.User, 
 		return nil, err
 	}
 	if err := bcrypt.CompareHashAndPassword([]byte(user.HashPassword), []byte(password)); err != nil {
-		fmt.Println("CIOOECMD")
-		return nil, err
+		return nil, err // UPDATE PASSWORD ???
 	}
 	return &user, nil
 }
 
-func (db *PostgreSQL) UpdateUser(user, userUpdated *models.User) (*models.User, error) {
+func (db *PostgreSQL) UpdateUser(user *models.User) (*models.User, error) {
 	updateQuery := `UPDATE users SET name = $2,email=$3, is_admin = $4 WHERE id = $1`
+	if _, err := db.DBSql.Exec(updateQuery, user.ID, user.Name, user.Email, user.IsAdmin); err != nil {
+		return nil, err
+	}
+	log.Println("User updated successfully")
 
-	check := false
-	if user.Name != userUpdated.Name {
-		user.Name = userUpdated.Name
-		check = true
-	}
-	if user.Email != userUpdated.Email {
-		user.Email = userUpdated.Email
-		check = true
-	}
-
-	if user.IsAdmin != userUpdated.IsAdmin {
-		user.IsAdmin = userUpdated.IsAdmin
-		check = true
-	}
-	if check {
-		if _, err := db.DBSql.Exec(updateQuery, user.ID, user.Name, user.Email, user.IsAdmin); err != nil {
-			return nil, err
-		}
-		log.Println("User updated successfully")
-	} else {
-		log.Println("No updates were made to the user")
-	}
 	return user, nil
 }
 func (db *PostgreSQL) DeleteUser(id int) (*models.User, error) {

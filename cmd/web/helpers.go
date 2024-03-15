@@ -178,3 +178,21 @@ func MapOfPosts(postsArr []*models.Post) map[int]*models.Post {
 	}
 	return posts
 }
+func CheckUpdateUser(user, userUpdated *models.User) (*models.User, bool) {
+	check := false
+	if user.Name != userUpdated.Name {
+		user.Name = userUpdated.Name
+		check = true
+	}
+	if user.Email != userUpdated.Email {
+		user.Email = userUpdated.Email
+		check = true
+	}
+
+	if user.IsAdmin != userUpdated.IsAdmin {
+		user.IsAdmin = userUpdated.IsAdmin
+		check = true
+	}
+
+	return user, check
+}

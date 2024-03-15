@@ -132,17 +132,19 @@ func (api *API) UpdateUserByID(w http.ResponseWriter, r *http.Request) {
 		api.Error(w, http.StatusMethodNotAllowed, "Method not allowed.")
 		return
 	}
+
 	id, err := getID(r)
 	if err != nil {
 		api.Error(w, http.StatusInternalServerError, err.Error())
 		return
 	}
-	user, err := api.DB.UserByID(id)
 
+	user, err := api.DB.UserByID(id)
 	if err != nil {
 		api.Error(w, http.StatusInternalServerError, err.Error())
 		return
 	}
+
 
 	var userUpdated models.User
 	if err := json.NewDecoder(r.Body).Decode(&userUpdated); err != nil {
@@ -152,8 +154,13 @@ func (api *API) UpdateUserByID(w http.ResponseWriter, r *http.Request) {
 	if IsAdmin {
 		userUpdated.IsAdmin = userUpdated.IsAdmin
 	}
+	updated, ok :=  CheckUpdateUser(user, &userUpdated)
+	if !ok {
+		WriteJSON(w, http.StatusOK , "Nothing to update.")
+		return
+	}
 
-	update, err := api.DB.UpdateUser(user, &userUpdated)
+	update, err := api.DB.UpdateUser(updated)
 	if err != nil {
 		api.Error(w, http.StatusInternalServerError, err.Error())
 		return

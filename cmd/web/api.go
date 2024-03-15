@@ -43,7 +43,6 @@ func Start() {
 	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 
 	postgres, err := OpenDB()
-	//postgres, err := OpenDBByMigrateFiles("postgres://postgres:0000@localhost/golang?sslmode=disable")
 	if err != nil {
 		log.Println(err)
 	}
@@ -60,10 +59,6 @@ func Start() {
 			DBSql: postgres,
 		},
 	}
-	//if err := app.DB.Init(); err != nil {
-	//	log.Println(err)
-	//}
-
 	if err := InitByMigrateFiles(postgres); err != nil {
 		log.Println(err)
 	}
