@@ -1,4 +1,144 @@
-Log: 2024/03/15 10:36:08 helpers.go:120: Connected Successfully: Postgres
-Log: 2024/03/15 10:36:08 api.go:198: OK.
-Log: 2024/03/15 10:36:13 helpers.go:87: Cache updated.
-Log: 2024/03/15 10:36:13 api.go:109: 0x104b09d90  Connecting to the Internet.
+Log: 2024/03/15 13:14:47 helpers.go:121: Connected Successfully: Postgres
+Log: 2024/03/15 13:14:47 api.go:198: OK.
+Log: 2024/03/15 13:14:51 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:14:53 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:14:55 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:14:58 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:14:59 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:02 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:02 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:15:02 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:15:03 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:06 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:08 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:11 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:13 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:15 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:17 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:15:17 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:15:18 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:18 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:22 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:22 postgres.go:56: User updated successfully
+Log: 2024/03/15 13:15:23 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:26 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:28 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:30 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:32 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:15:32 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:15:33 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:33 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:38 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:38 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:42 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:43 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:46 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:47 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:15:47 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:15:48 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:50 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:52 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:15:53 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:57 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:15:58 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:00 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:02 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:16:02 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:16:03 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:05 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:08 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:09 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:12 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:13 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:17 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:17 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:16:17 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:16:18 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:20 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:23 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:24 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:28 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:28 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:31 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:32 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:16:32 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:16:33 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:35 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:38 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:39 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:42 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:43 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:45 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:47 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:16:47 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:16:48 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:48 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:53 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:16:53 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:57 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:16:58 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:01 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:02 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:17:02 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:17:03 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:05 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:08 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:09 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:13 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:13 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:16 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:17 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:17:17 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:17:18 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:20 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:22 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:24 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:28 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:28 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:32 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:32 helpers.go:93: pq: duplicate key value violates unique constraint "users_email_key"
+Log: 2024/03/15 13:17:32 server.go:3214: http: superfluous response.WriteHeader call from main.WriteJSON (helpers.go:99)
+Log: 2024/03/15 13:17:32 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:17:32 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:17:33 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:36 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:38 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:39 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:42 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:43 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:47 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:47 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:48 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:17:48 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:17:49 postgres.go:56: User updated successfully
+Log: 2024/03/15 13:17:50 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:52 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:17:54 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:57 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:17:58 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:00 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:02 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:18:02 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:18:03 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:05 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:08 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:09 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:13 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:13 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:17 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:17 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:18:17 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:18:18 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:20 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:22 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:24 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:27 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:27 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:30 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:32 api.go:91: Can't insert data to redis: dial tcp [::1]:6379: connect: connection refused .
+Log: 2024/03/15 13:18:32 api.go:93: Data for Redis successfully inserted!!!
+Log: 2024/03/15 13:18:33 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:34 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:38 api.go:109: 0x104c91ed0  Connecting to the Internet.
+Log: 2024/03/15 13:18:38 helpers.go:88: Cache updated.
+Log: 2024/03/15 13:18:38 api.go:120: Success update a cache!!!

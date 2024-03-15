@@ -145,7 +145,6 @@ func (api *API) UpdateUserByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
 	var userUpdated models.User
 	if err := json.NewDecoder(r.Body).Decode(&userUpdated); err != nil {
 		api.Error(w, http.StatusInternalServerError, err.Error())
@@ -154,9 +153,9 @@ func (api *API) UpdateUserByID(w http.ResponseWriter, r *http.Request) {
 	if IsAdmin {
 		userUpdated.IsAdmin = userUpdated.IsAdmin
 	}
-	updated, ok :=  CheckUpdateUser(user, &userUpdated)
+	updated, ok := CheckUpdateUser(user, &userUpdated)
 	if !ok {
-		WriteJSON(w, http.StatusOK , "Nothing to update.")
+		WriteJSON(w, http.StatusOK, "Nothing to update.")
 		return
 	}
 

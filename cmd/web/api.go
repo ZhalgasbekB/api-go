@@ -25,10 +25,10 @@ var (
 )
 
 type API struct {
+	Cache     map[string]*template.Template
 	CacheUser *models.User
 	UserPosts *models.UsersPosts
 	Artists   []models.Artists
-	Cache     map[string]*template.Template
 	DB        *db.PostgreSQL
 }
 

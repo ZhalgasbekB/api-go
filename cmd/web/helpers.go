@@ -10,6 +10,7 @@ import (
 	_ "github.com/golang-migrate/migrate/source/file"
 	"github.com/gorilla/mux"
 	_ "github.com/lib/pq"
+	"golang.org/x/crypto/bcrypt"
 	"groupie-tracker/internal/models"
 	"log"
 	"net/http"
@@ -188,7 +189,13 @@ func CheckUpdateUser(user, userUpdated *models.User) (*models.User, bool) {
 		user.Email = userUpdated.Email
 		check = true
 	}
-
+	if userUpdated.HashPassword != "" {
+		hashPassword, err := bcrypt.GenerateFromPassword([]byte(userUpdated.HashPassword), bcrypt.DefaultCost)
+		if err != nil {
+			fmt.Println(err)
+		}
+		user.HashPassword = string(hashPassword)
+	}
 	if user.IsAdmin != userUpdated.IsAdmin {
 		user.IsAdmin = userUpdated.IsAdmin
 		check = true

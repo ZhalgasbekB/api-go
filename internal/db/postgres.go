@@ -49,8 +49,8 @@ func (db *PostgreSQL) UserByEmail(email string, password string) (*models.User, 
 }
 
 func (db *PostgreSQL) UpdateUser(update *models.User) (*models.User, error) {
-	updateQuery := `UPDATE users SET name = $2,email=$3, is_admin = $4 WHERE id = $1`
-	if _, err := db.DBSql.Exec(updateQuery, update.ID, update.Name, update.Email, update.IsAdmin); err != nil {
+	updateQuery := `UPDATE users SET name = $2,email=$3, password= $4, is_admin = $5 WHERE id = $1`
+	if _, err := db.DBSql.Exec(updateQuery, update.ID, update.Name, update.Email, update.HashPassword, update.IsAdmin); err != nil {
 		return nil, err
 	}
 	log.Println("User updated successfully")
@@ -129,13 +129,11 @@ func (db *PostgreSQL) UpdatePost(updatePost, post *models.Post) error {
 		check = true
 
 	}
-
 	if post.UpdatedAt != updatePost.UpdatedAt {
 		post.UpdatedAt = updatePost.UpdatedAt
 		check = true
 
 	}
-
 	if check {
 		if _, err := db.DBSql.Exec(query, post.ID, post.Title, post.Description, post.UpdatedAt); err != nil {
 			return err
